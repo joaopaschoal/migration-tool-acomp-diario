@@ -1,0 +1,37 @@
+// schema.prisma
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./bd_acompanhamento.db3"
+}
+
+
+model CategoriaCientifica {
+  id_categoria_cientifica Int           @id @default(autoincrement())
+  nome                  String        @unique
+  disciplinas           Disciplina[]  // Add this line to define the opposite relation
+}
+
+model Disciplina {
+  id_disciplina           Int               @id @default(autoincrement())
+  nome                    String            @unique
+  id_categoria_cientifica Int
+  categoriaCientifica     CategoriaCientifica @relation(fields: [id_categoria_cientifica], references: [id_categoria_cientifica])
+  assuntos                Assunto[]
+}
+
+model Assunto {
+  id_assunto         Int      @id @default(autoincrement())
+  nome              String   @unique
+  nome_abreviado    String?
+  id_assunto_pai    Int?
+  assuntoPai        Assunto? @relation("AssuntoToAssunto", fields: [id_assunto_pai], references: [id_assunto])
+  disciplina        Disciplina @relation(fields: [disciplinaId], references: [id_disciplina]) // Correct reference to id_disciplina
+  assuntosFilhos    Assunto[] @relation("AssuntoToAssunto")
+  disciplinaId      Int
+}
