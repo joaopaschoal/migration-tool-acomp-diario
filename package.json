@@ -1,16 +1,25 @@
 {
-  "name": "acompanhamento-diario-data-migrate",
+  "name": "migration-tool-acomp-diario",
   "version": "1.0.0",
-  "description": "",
+  "description": "A tool for migrating acompanhamento diario v1 data to new firebase app.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "João Paulo",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.6.0",
     "firebase-admin": "^11.11.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/joaopaschoal/migration-tool-acomp-diario.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joaopaschoal/migration-tool-acomp-diario/issues"
+  },
+  "homepage": "https://github.com/joaopaschoal/migration-tool-acomp-diario#readme"
 }

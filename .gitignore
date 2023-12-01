@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+acompanhamento-diario-firebase-adminsdk-ry66n-ab50183fec.json
+bd_acompanhamento.db3
