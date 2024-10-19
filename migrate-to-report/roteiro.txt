@@ -1,10 +1,11 @@
 Para migrar os dados do firebase realtime database para um csv da view utilizada no Google Lookups faça o seguinte:
 1-Acesse a base do firebase e faça o download dos dados num arquivo json (renomeie para "data.json");
-2-Coloque o arquivo na pasta "migrate-to-report" deste projeto e execute o arquivo json-to-xlsx.js (via node);
-3-abra o arquivo "output.xlsx" no excel (ou google sheets) e exporte cada uma das planilhas num arquivo csv;
-4-nomeie cada arquivo csv com o nome da respectiva tabela (usando snake_case) para que a tabela seja criada já com o nome certo;
-5-importe os arquivos CSV numa base relacional qualquer (sugestão: crie um container docker postgres localhost);
-6-abra uma planilha SQL conectada na base contendo as tabelas importadas e execute o arquivo "query-to-unified-report.sql";
-7-exporte os dados da query para um csv e nomeie de "vw-dados-acomp.csv";
-8-abra a planilha "VwAcompDiario" do Google Sheets, va em importar dados, selecione o arquivo "vw-dados-acomp.csv" e modifique a opçao "criar planilha" para "substituir planilha";
-10-atualize a fonte de dados do Google Lookups.
+2-Ajuste o arquivo .json para que seu objeto raiz contenha apenas os dados/conteudo dentro do usuário desejado (ex: "yx3jmX60jyg7HPUgj7WeCV0nEdO2");
+3-Coloque o arquivo na pasta "migrate-to-report" deste projeto e execute o arquivo json-to-xlsx.js (via node);
+4-abra o arquivo "output.xlsx" no excel (ou google sheets) e exporte cada uma das planilhas num arquivo csv (UTF-8);
+5-nomeie cada arquivo csv com o nome da respectiva tabela (usando snake_case) para que a tabela seja criada já com o nome certo;
+6-importe os arquivos CSV numa base relacional qualquer (sugestão: crie um container docker postgres localhost e num dbeaver use "import data" no schema);
+7-abra uma planilha SQL conectada na base contendo as tabelas importadas e execute o arquivo "query-to-unified-report.sql";
+8-exporte os dados da query para um csv e nomeie de "vw-dados-acomp.csv";
+9-abra a planilha "VwAcompDiario" do Google Sheets, va em importar dados, selecione o arquivo "vw-dados-acomp.csv" e modifique a opçao "criar planilha" para "substituir planilha";
+10-atualize a fonte de dados do Google Looker Studio.
