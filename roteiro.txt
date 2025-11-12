@@ -1,0 +1,12 @@
+Para migrar os dados do firebase realtime database para um csv da view utilizada no Google Lookups faça o seguinte:
+
+ 1-[Baixar JSON Firebase]: Acesse a base do firebase e faça o download dos dados num arquivo json (renomeie para "data.json");
+ 2-[Ajustar Arquivo JSON]: Ajuste o arquivo .json para que seu objeto raiz contenha apenas os dados/conteudo dentro do usuário desejado (ex: "yx3jmX60jyg7HPUgj7WeCV0nEdO2");
+ 3-[Converter em Xlsx]: Coloque o arquivo na pasta "migrate-to-report" deste projeto e execute o arquivo json-to-xlsx.js (via node);
+ 4-[Converter em Csv]: Uma vez gerado o "output.xlsx", execute o arquivo xlsx-to-csvs.js (via node);
+ 5-[Subir Postgres]: Rode o "docker-run-postgres.sh" para criar um postgres que servirá como base relacional de apoio;
+ 6-[Importar Tabelas]: Importe os arquivos CSVs no postgres criado (sugestão: pelo dbeaver use a função "import data" no schema);
+ 7-[Criar View]: Abra uma planilha SQL conectada na base e crie a view executando o arquivo "create-view-unified-report.sql";
+ 8-[Exportar View]: Exporte os dados da view para um csv e nomeie de "vw-dados-acomp.csv", certifique-se de utilizar separador ',' e encoding 'utf-8';
+ 9-[Importar no GoogleSheet]: Abra a planilha "VwAcompDiario" do Google Sheets, va em "Arquivo" -> "Importar", selecione o arquivo "vw-dados-acomp.csv" e modifique a opçao "criar planilha" para "substituir planilha";
+10-[Atualizar DataSource LookerStudio]: Atualize a fonte de dados do Google Looker Studio em "Recurso" => "Gerenciar fontes de dados adicionadas" => "Editar" => "EDITAR CONEXÃO" => Localize a planilha e clique em "Reconectar".

@@ -2,7 +2,7 @@ const fs = require("fs");
 const ExcelJS = require("exceljs");
 
 // Leitura do arquivo JSON
-const jsonData = fs.readFileSync("data.json", "utf8");
+const jsonData = fs.readFileSync("./data.json", "utf8");
 const data = JSON.parse(jsonData);
 
 // Função para escrever no Excel

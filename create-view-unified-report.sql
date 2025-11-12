@@ -1,3 +1,4 @@
+CREATE VIEW vw_unified_report AS
 select acp.id, acp.data_referente data_acompanhamento, acp.data_registro data_registro_acompanhamento,
 tatv.nome atividade, atv.minutos minutos_atividade,
 tacd.nome autocuidado, acd.minutos minutos_autocuidado,

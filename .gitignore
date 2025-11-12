@@ -129,9 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-migrate-from-sql-v1/acompanhamento-diario-firebase-adminsdk-ry66n-ab50183fec.json
-migrate-from-sql-v1/bd_acompanhamento.db3
-migrate-to-report/data*.json
-migrate-to-report/vw-dados-acomp.csv
-migrate-to-report/output.xlsx
-migrate-to-report/exported_csvs
+data*.json
+vw-dados-acomp.csv
+output.xlsx
+exported_csvs
